@@ -1,7 +1,7 @@
 Summary:	C Configuration File Library
 Name:		libconfig
 Version:	1.4.9
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.hyperrealm.com/libconfig/%{name}-%{version}.tar.gz
@@ -17,13 +17,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Libconfig is a simple library for manipulating structured
 configuration files.
-
-Libconfig is very compact, which makes it well-suited for
-memory-constrained systems like handheld devices.
-
-The library includes bindings for both the C and C++ languages. It
-works on POSIX-compliant UNIX systems (GNU/Linux, Mac OS X, Solaris,
-FreeBSD) and Windows (2000, XP and later).
 
 %package devel
 Summary:	Header files for libconfig library
@@ -70,7 +63,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_infodir}/dir
+%{__rm} $RPM_BUILD_ROOT%{_infodir}/dir
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -96,7 +90,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libconfig.so
-%{_libdir}/libconfig.la
 %{_includedir}/libconfig.h
 %{_pkgconfigdir}/libconfig.pc
 %{_infodir}/libconfig.info*
@@ -109,7 +102,6 @@ rm -rf $RPM_BUILD_ROOT
 %files c++-devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libconfig++.so
-%{_libdir}/libconfig++.la
 %{_includedir}/libconfig.h++
 %{_pkgconfigdir}/libconfig++.pc
 
