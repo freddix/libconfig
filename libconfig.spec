@@ -1,11 +1,11 @@
 Summary:	C Configuration File Library
 Name:		libconfig
-Version:	1.4.9
-Release:	2
+Version:	1.5
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.hyperrealm.com/libconfig/%{name}-%{version}.tar.gz
-# Source0-md5:	b6ee0ce2b3ef844bad7cac2803a90634
+# Source0-md5:	a939c4990d74e6fc1ee62be05716f633
 URL:		http://www.hyperrealm.com/main.php?s=libconfig
 BuildRequires:	autoconf
 BuildRequires:	automake
